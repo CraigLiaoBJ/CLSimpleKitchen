@@ -1,0 +1,82 @@
+//
+//  SimpleKitchen-Prefix.pch
+//  SimpleKitchen
+//
+//  Created by Craig Liao on 15/8/11.
+//  Copyright (c) 2015年 Craig Liao. All rights reserved.
+//
+#import <Availability.h>
+
+#ifndef SimpleKitchen_SimpleKitchen_Prefix_pch
+#define SimpleKitchen_SimpleKitchen_Prefix_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIImage+Extension.h"
+#import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+#import "CLDetailTableViewController.h"
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "CLModelItem.h"
+
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define CLLog(...) NSLog(__VA_ARGS__)
+#else // 发布状态, 关闭LOG功能
+#define CLLog(...)
+#endif
+
+// 随机色
+#define CLRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+// 红色
+#define CLRedColor [UIColor colorWithRed:235/255.0 green:79/255.0 blue:56/255.0 alpha:1.0]
+
+// 是否为iOS7
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+
+// 是否为4inch
+#define FourInch ([UIScreen mainScreen].bounds.size.height == 568.0)
+
+
+// 导航栏标题的字体
+#define CLNavigationTitleFont [UIFont boldSystemFontOfSize:20]
+
+// frame
+#define kWIDTH self.view.bounds.size.width
+#define kHEIGHT self.view.bounds.size.height
+#define kWW self.frame.size.width
+#define kHH self.frame.size.height
+
+
+//recipe 的URL
+#define RecipeUrl @"http://121.41.88.194:80/HandheldKitchen/api/more/tblcalendaralertinfo!homePageInfo.do?phonetype=2&page=1&pageRecord=10&is_traditional=0"
+#define MethodUrl @"http://121.41.117.95:80/HandheldKitchen/api/vegetable/tblvegetable!getIntelligentChoice.do?vegetable_id="//做法
+#define MaterialUrl @"http://121.41.117.95:80/HandheldKitchen/api/vegetable/tblvegetable!getIntelligentChoice.do?vegetable_id="//材料
+#define RelatelUrl @"http://121.41.117.95:80/HandheldKitchen/api/vegetable/tblvegetable!getIntelligentChoice.do?vegetable_id="//相关常识
+#define AlertUrl @"http://121.41.117.95:80/HandheldKitchen/api/vegetable/tblvegetable!getIntelligentChoice.do?vegetable_id=%@&type=3&phonetype=0&is_traditional=0"//相生相克
+
+//menu　的URL
+#define MenuUrl @"http://121.41.88.194:80/HandheldKitchen/api/home/tblAssort!getFirstgrade.do"
+#define DietUrl @"http://121.41.88.194:80/HandheldKitchen/api/vegetable/tbldisease!getDisease.do?officeId="
+#define DietDetailUrl @"http://121.41.88.194:80/HandheldKitchen/api/vegetable/tbldisease!getVegetable.do?diseaseId="
+
+//次menu 的URL
+#define SubMenu @"http://121.41.88.194:80/HandheldKitchen/api/home/tblAssort!getVegetable.do?id="
+
+//精品
+#define SelectionUrl @"http://121.41.84.91:80/HandheldKitchen/api/found/tblBoutique!getTblBoutiqueTypeList.do?is_traditional=0&page=1&pageRecord=24&phonetype=1"
+#define SelectDetail @"http://121.41.84.91:80/HandheldKitchen/api/found/tblBoutique!getTblBoutiqueVegetableList.do?is_traditional=0&page=1&pageRecord=100&phonetype=0&user_id=0&typeId="
+
+//新鲜事
+#define NewUrl @"http://121.41.84.91:80/HandheldKitchen/api/found/tblFresh!getTblFreshList.do?is_traditional=0&page="
+#define NewDetail @"http://121.41.117.95:80/HandheldKitchen/api/found/tblFresh!getTblFreshDelicacyList.do?freshId="
+
+//汤
+#define SoupMenu @"http://121.41.88.194:80/HandheldKitchen/api/more/hotwater!getHotwaterClass.do?is_traditional=0"
+#define SubSoupMenu @"http://121.41.88.194:80/HandheldKitchen/api/more/hotwater!getHotwaterList.do?id="
+#define SubSpMenu @"http://121.41.88.194:80/HandheldKitchen/api/more/hotwater!getHotwaterClassList.do?id="
+
+
+
+#endif
